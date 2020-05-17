@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Input, Button, Menu } from 'antd';
+import { connect } from "react-redux";
 
 import './index.scss';
+import { changeKeyword } from '../../store/actions';
 const Item = Menu.Item;
 const ItemGroup = Menu.ItemGroup;
 const SubMenu = Menu.SubMenu;
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            keyword: ''
+        }
     }
-    getInputValue = event => {
-
+    onChangeKeyword = event => {
+        this.setState({
+            keyword: event.target.value
+        })
+    }
+    onHandleSearch = () => {
+        const { keyword } = this.state;
+        this.props.changeKeyword(keyword);
     }
     render() {
         return (
@@ -26,7 +36,7 @@ class Header extends Component {
                     <div className="search">
                         <Input
                             placeholder="搜索菜谱、食材"
-                            onChange={event => this.getInputValue(event)}
+                            onChange={event => this.onChangeKeyword(event)}
                             allowClear
                             size="large"
                         />
@@ -34,7 +44,7 @@ class Header extends Component {
                             <Button
                                 type="primary"
                                 size="large"
-                                onClick={this.menuSearch}
+                                onClick={this.onHandleSearch}
                             >
                                 搜菜谱
                         </Button>
@@ -63,4 +73,13 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        keyword: state.keyword
+    }
+}
+const mapDispatchToProps = {
+    changeKeyword
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

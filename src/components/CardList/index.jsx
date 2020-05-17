@@ -21,7 +21,7 @@ class CardList extends Component {
         this.requestData(keyword, 0, 10)
     }
     async requestData(keyword, start, num) {
-        const res = await axios.get('recipe/search?', {
+        const res = await axios.get('recipe/search', {
             params: {
                 keyword,
                 start,

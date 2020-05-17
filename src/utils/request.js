@@ -2,8 +2,9 @@ import Axios from 'axios'
 import qs from 'qs'
 import { Message } from 'antd'
 
+const baseURL = process.env.NODE_ENV === "development" ? 'http://localhost:3000/' : 'http://www.potato865.cn/api/kitchen/';
 const instance = Axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL,
     timeout: 5000
 })
 
@@ -24,7 +25,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     response => {
         let data = response.data
-        if(data.status === 0) {
+        if (data.status === 0) {
             return response
         } else {
             Message.error(data.msg ? data.msg : data, 2)

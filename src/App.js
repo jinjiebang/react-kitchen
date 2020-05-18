@@ -1,12 +1,13 @@
+import { Col, Row } from 'antd';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
-import Header from './components/Header';
+import DishesList from './components/DishesList';
 import Footer from './components/Footer';
-import Home from './views/Home';
-import { Row, Col } from 'antd';
+import Header from './components/Header';
 import NavLeft from './components/NavLeft';
 import NavRight from './components/NavRight';
+import Home from './views/Home';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Switch>
                 <Route path="/" render={() => (
                   <Switch>
+                    <Route path="/dishes" component={DishesList} />
                     <Route path="/home" component={Home} />
                     <Redirect to="/home" />
                   </Switch>

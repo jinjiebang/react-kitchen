@@ -49,5 +49,5 @@
     "less-loader": "^6.1.0",
     "react-app-rewired": "^2.1.6"
   },
-  "proxy":"http://www.potato865.cn/api/kitchen/"
+  "proxy": "http://www.potato865.cn/api/kitchen/"
 }

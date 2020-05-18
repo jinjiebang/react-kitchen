@@ -57,24 +57,29 @@ const menuList = [
         children: [
             {
                 title: '果实类蔬菜',
+                keyword: '果子',
                 key: '/vegetables/fruits'
             },
             {
                 title: '根茎蔬菜',
+                keyword: '根',
                 key: '/vegetables/roots'
             },
             {
                 title: '菌菇类',
+                keyword: '菇',
                 key: '/vegetables/mushrooms'
             },
             {
                 title: '叶类蔬菜',
+                keyword: '青菜',
                 key: '/vegetables/leaves'
             }
         ]
     },
     {
         title: '汤羹',
+        keyword: '汤',
         key: '/soup'
     },
     {

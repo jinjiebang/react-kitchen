@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardList from '../CardList';
+import CardList from '../../components/CardList';
 class DishesList extends Component {
   constructor(props) {
     super(props);

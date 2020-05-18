@@ -2,11 +2,12 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './App.scss';
-import DishesList from './components/DishesList';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import NavLeft from './components/NavLeft';
 import NavRight from './components/NavRight';
+import Detail from './views/Detail';
+import DishesList from './views/DishesList';
 import Home from './views/Home';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
             </Col>
             <Col span='10'>
               <Switch>
+                <Route path="/common" render={() => (
+                  <Route path="/common/detail/:id" component={Detail} />
+                )} />
                 <Route path="/" render={() => (
                   <Switch>
                     <Route path="/dishes" component={DishesList} />

@@ -1,8 +1,15 @@
 .homeWrap {
   .homeSwiper {
-    height: 120px;
-    img {
-      max-width: 100%;
+    div {
+      height: 100%;
+      img {
+        max-width: 100%;
+      }
     }
+    
   }
+}
+.ant-carousel .slick-slide {
+  height: 120px;
+  overflow: hidden;
 }

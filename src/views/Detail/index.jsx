@@ -42,8 +42,8 @@ class Detail extends Component {
     const menu = this.props.location.state;
     const tags = menu.tag.split(",").slice(0, 6);
     const material = menu.material.map((data) => {
-      const type = data.type === "0" ? "配料" : "主材";
-      return { type, ...data };
+      const type = data.type === 0 ? "配料" : "主材";
+      return { ...data, type };
     });
     const process = menu.process;
 
@@ -65,7 +65,7 @@ class Detail extends Component {
               ))}
             </div>
             <div className="statistic">
-              <Statistic title="尝试人数" value={112893} className="statistic-item"/>
+              <Statistic title="尝试人数" value={112893} className="statistic-item" />
               <Statistic
                 className="statistic-item"
                 title="支持一下"
@@ -90,6 +90,7 @@ class Detail extends Component {
             食材准备
           </h3>
           <Table
+            rowKey='mname'
             columns={columns}
             dataSource={material}
             size="small"

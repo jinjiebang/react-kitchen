@@ -1,15 +1,16 @@
-.content{
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #ECECEC;
-    .card{
-      width: 180px;
-      margin: 20px 15px;
-      .ant-card-meta-description {
-        color: rgba(0, 0, 0, 0.45);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #ececec;
+  .card {
+    width: 180px;
+    margin: 20px 15px;
+    .ant-card-meta-description {
+      color: rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
+}

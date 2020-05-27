@@ -20,10 +20,10 @@ class NavLeft extends Component {
         );
       }
       return (
-        <Item title={item.title} key={item.key}>
+        <Item title={item.title} key={item.title}>
           <NavLink
             to={{
-              pathname: "/dishes",
+              pathname: item.key || "/dishes",
               state: { keyword: item.keyword || item.title },
             }}
           >

@@ -9,16 +9,19 @@ class CardList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: []
+            list: [],
+            pageSize: 12,
         }
     }
     componentDidMount() {
         const { keyword } = this.props;
-        this.requestData(keyword, 0, 10)
+        const { pageSize } = this.state;
+        this.requestData(keyword, 0, pageSize)
     }
     componentWillReceiveProps(nextProps) {
         const { keyword } = nextProps;
-        this.requestData(keyword, 0, 10)
+        const { pageSize } = this.state;
+        this.requestData(keyword, 0, pageSize)
     }
     async requestData(keyword, start, num) {
         const res = await axios.get('recipe/search', {

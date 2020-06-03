@@ -46,7 +46,7 @@ class CardList extends Component {
         })
     }
     render() {
-        const { list, total, currentPage } = this.state;
+        const { list, total, currentPage, pageSize } = this.state;
         return (
             <div className="content">
                 {
@@ -72,7 +72,7 @@ class CardList extends Component {
                     })
                 }
                 <div className="pagination">
-                    <Pagination onChange={this.onChangePage} total={total} current={currentPage} />
+                    <Pagination onChange={this.onChangePage} total={total} current={currentPage} pageSize={pageSize} showSizeChanger={false} />
                 </div>
             </div>
         );

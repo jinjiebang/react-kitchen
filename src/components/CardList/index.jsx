@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../utils/request';
 import { NavLink } from 'react-router-dom';
-import { Card } from 'antd';
+import { Card, Pagination } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 
 import './index.scss'
@@ -10,7 +10,9 @@ class CardList extends Component {
         super(props);
         this.state = {
             list: [],
+            total: 0,
             pageSize: 12,
+            currentPage: 1
         }
     }
     componentDidMount() {
@@ -23,6 +25,11 @@ class CardList extends Component {
         const { pageSize } = this.state;
         this.requestData(keyword, 0, pageSize)
     }
+    onChangePage = (page) => {
+        const { keyword } = this.props;
+        const { pageSize } = this.state;
+        this.requestData(keyword, page - 1, pageSize)
+    }
     async requestData(keyword, start, num) {
         const res = await axios.get('recipe/search', {
             params: {
@@ -33,11 +40,13 @@ class CardList extends Component {
             }
         })
         this.setState({
+            total: res.data.result.total,
+            currentPage: start + 1,
             list: res.data.result.list || []
         })
     }
     render() {
-        const { list } = this.state;
+        const { list, total, currentPage } = this.state;
         return (
             <div className="content">
                 {
@@ -62,6 +71,9 @@ class CardList extends Component {
                         )
                     })
                 }
+                <div className="pagination">
+                    <Pagination onChange={this.onChangePage} total={total} current={currentPage} />
+                </div>
             </div>
         );
     }

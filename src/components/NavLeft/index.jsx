@@ -14,7 +14,7 @@ class NavLeft extends Component {
     return data.map((item) => {
       if (item.children) {
         return (
-          <SubMenu title={item.title} key={item.key}>
+          <SubMenu title={item.title} key={item.title}>
             {this.renderMenu(item.children)}
           </SubMenu>
         );

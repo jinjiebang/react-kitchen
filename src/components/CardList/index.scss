@@ -3,6 +3,11 @@
   justify-content: center;
   flex-wrap: wrap;
   background-color: #ececec;
+  .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
   .card {
     width: 180px;
     margin: 10px 8px;
